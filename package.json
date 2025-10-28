@@ -1,6 +1,6 @@
 {
   "name": "com.benflwrs.flwrutils",
-  "displayName": "flwrUtils - Useful Unity Scripts",
+  "displayName": "flwrUtils",
   "version": "1.0.0",
   "description": "A bunch of useful unity scripts",
   "dependencies": {},
