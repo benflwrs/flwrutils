@@ -1,7 +1,7 @@
 {
   "name": "com.benflwrs.flwrutils",
   "displayName": "flwrUtils - Useful Unity Scripts",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "A bunch of useful unity scripts",
   "dependencies": {},
   "homepage": "https://github.com/benflwrs/flwrutils",
