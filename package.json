@@ -1,0 +1,20 @@
+{
+  "name": "com.benflwrs.flwrutils",
+  "displayName": "flwrUtils - Useful Unity Scripts",
+  "version": "1.0",
+  "description": "A bunch of useful unity scripts",
+  "dependencies": {},
+  "homepage": "https://github.com/benflwrs/flwrutils",
+  "bugs": {
+    "url": "https://github.com/benflwrs/flwrutils/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/benflwrs/flwrutils.git"
+  },
+  "license": "MIT",
+  "author": "benflwrs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
