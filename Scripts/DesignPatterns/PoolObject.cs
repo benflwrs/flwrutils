@@ -1,60 +1,64 @@
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Pool;
 
-public class PoolObject : MonoBehaviour
+namespace com.benflwrs.flwrutils.Patterns
 {
-	public UnityEvent OnGet;
-	public UnityEvent OnRelease;
-	public UnityEvent Hurry;
-	public Pooler pooler { get; protected set; }
-	public string poolerID = default;
-	//public bool createPoolerIfNull = true;
-	public bool fetchPoolerIfNull = true;
-	public bool IsHurried = false;
+	using System.Collections.Generic;
+	using UnityEngine.Events;
+	using UnityEngine.Pool;
+	using UnityEngine;
 
-	public void Awake()
+	public class PoolObject : MonoBehaviour
 	{
-		if (!pooler && fetchPoolerIfNull && poolerID != default)
+		public UnityEvent OnGet;
+		public UnityEvent OnRelease;
+		public UnityEvent Hurry;
+		public Pooler pooler { get; protected set; }
+		public string poolerID = default;
+		//public bool createPoolerIfNull = true;
+		public bool fetchPoolerIfNull = true;
+		public bool IsHurried = false;
+
+		public void Awake()
 		{
-			if (Pooling.HasPool(poolerID))
+			if (!pooler && fetchPoolerIfNull && poolerID != default)
 			{
-				pooler = Pooling.GetPool(poolerID);
+				if (Pooling.HasPool(poolerID))
+				{
+					pooler = Pooling.GetPool(poolerID);
+				}
+				//else if (createPoolerIfNull)
+				//{
+				//	pooler = Pooling.CreatePool(poolerID);
+				//}
 			}
-			//else if (createPoolerIfNull)
-			//{
-			//	pooler = Pooling.CreatePool(poolerID);
-			//}
 		}
-	}
 
-	public void SetPooler(Pooler pooler)
-	{
-		if (!pooler)
+		public void SetPooler(Pooler pooler)
 		{
-			pooler = null;
-			poolerID = "";
-			return;
+			if (!pooler)
+			{
+				pooler = null;
+				poolerID = "";
+				return;
+			}
+
+			this.pooler = pooler;
+			poolerID = pooler.ID;
 		}
 
-		this.pooler = pooler;
-		poolerID = pooler.ID;
-	}
-
-	public void Release()
-	{
-		if (pooler)
-			pooler.Release(this);
-		else
+		public void Release()
 		{
-			Destroy(gameObject);
+			if (pooler)
+				pooler.Release(this);
+			else
+			{
+				Destroy(gameObject);
+			}
 		}
-	}
 
-	public void HurryUp()
-	{
-		IsHurried = true;
-		Hurry?.Invoke();
+		public void HurryUp()
+		{
+			IsHurried = true;
+			Hurry?.Invoke();
+		}
 	}
 }
