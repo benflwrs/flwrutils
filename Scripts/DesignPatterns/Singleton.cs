@@ -1,10 +1,10 @@
 
-
-namespace com.benflwrs.flwrutils.Patterns
-{
 	using UnityEngine;
 	using System.Collections;
 	using System.Collections.Generic;
+
+namespace com.benflwrs.flwrutils.Patterns
+{
 
 	[DefaultExecutionOrder(-5)]
 	public class Singleton<T> : MonoBehaviour where T : Singleton<T>

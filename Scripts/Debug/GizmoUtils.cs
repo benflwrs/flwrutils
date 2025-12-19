@@ -1,11 +1,11 @@
 
-
-namespace com.benflwrs.flwrutils.Debug
-{
 	using com.benflwrs.flwrutils.Patterns;
 	using UnityEngine;
 	using System;
 	using System.Collections.Generic;
+
+namespace com.benflwrs.flwrutils.Debug
+{
 
 	public class GizmoUtils : Singleton<GizmoUtils>
 	{
