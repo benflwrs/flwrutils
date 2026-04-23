@@ -1,11 +1,11 @@
 
-	using System.Collections.Generic;
-	using UnityEngine;
-	using UnityEngine.Pool;
-
 
 namespace com.benflwrs.flwrutils.Patterns
 {
+
+	using System.Collections.Generic;
+	using UnityEngine;
+	using UnityEngine.Pool;
 	public static class Pooling
 	{
 		private static Dictionary<string, Pooler> poolMap;
